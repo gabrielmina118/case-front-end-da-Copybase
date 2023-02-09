@@ -17,10 +17,15 @@ export default function GlobalState(props) {
 
   const getPokemons = async () => {
     try {
-      const response = await axios.get(
-        `${BASE_URL}/?offset=${pagina}&limit=30`
-      );
-      setPokemons(response.data.results);
+      // Criar um array de 1 até 20
+      const arrayNumber = Array.from({ length: 20 }, (_, index) => ++index)
+      // Buscar os pokemons ja com as informações de cada um na url => https://pokeapi.co/api/v2/pokemon/numberpok
+      const pokemonsAll = arrayNumber.map(async (numberpok) => {
+        const res = await axios.get(`${BASE_URL}/${numberpok}/`);
+        return res.data;
+      });
+      const resolvedPokemons = await Promise.all(pokemonsAll);
+      setPokemons(resolvedPokemons);
       setRemoveLoading(true);
     } catch (erro) {
       console.log("Erro", erro);
