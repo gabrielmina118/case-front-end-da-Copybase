@@ -1,8 +1,9 @@
 import {BrowserRouter,Routes,Route} from "react-router-dom"
+import Characteristic from "../pages/Characteristic"
 import DetailPage from "../pages/DetailPage"
 import ErrorPage from "../pages/ErrorPage"
 import Home from "../pages/Home"
-import Pokedex from "../pages/Pokedex"
+
 
 
 const Router = () =>{
@@ -10,7 +11,7 @@ const Router = () =>{
         <BrowserRouter>
             <Routes>
                 <Route index element={<Home/>}/>
-                <Route path="/pokedex" element={<Pokedex/>}/>
+                <Route path="/characteristic/:id" element={<Characteristic/>}/>
                 <Route path="/detail/:id" element={<DetailPage/>}/>
                 <Route path="*" element={<ErrorPage/>}/>
             </Routes>

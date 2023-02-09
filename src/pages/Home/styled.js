@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { backgroundColors, typesColors } from "../../components/Colors/colors";
 
-
 export const Header = styled.header`
   display: flex;
   height: 160px;
@@ -53,10 +52,33 @@ export const ButtonHeader = styled.button`
 `;
 export const Container = styled.div`
   background-color: #5d5d5d;
+`;
+
+export const Busca = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   h1 {
     color: #fff;
     margin-left: 40px;
     padding: 16px;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    label{
+      color: #fff;
+    }
+    input {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
   }
 `;
 export const MainContainer = styled.main`
@@ -74,10 +96,10 @@ export const CardPokemon = styled.div`
   display: flex;
   justify-content: space-around;
   color: #fff;
-  #capturar{
-   display: flex;
-   align-items: center;
-   justify-content: center;
+  #capturar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
