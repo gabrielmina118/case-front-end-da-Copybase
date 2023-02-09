@@ -16,6 +16,18 @@ export const Container = styled.div`
     margin-left: 36px;
     padding: 10px;
   }
+
+  @media only screen and (min-width: 320px) and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    #backgroundPokebola,h1 {
+      margin: 10px;
+    }
+    
+  }
 `;
 
 export const DetailsPokemon = styled.div`
@@ -26,6 +38,10 @@ export const DetailsPokemon = styled.div`
   margin: 20px auto;
   background-color: ${(props) => backgroundColors[props.type]};
   border-radius: 20px;
+
+  @media only screen and (min-width: 320px) and (max-width: 768px) {
+    height: 100vh;
+  }
 `;
 
 export const StatsImg = styled.div`
@@ -44,6 +60,9 @@ export const StatsImg = styled.div`
     img {
       width: 200px;
     }
+  }
+  @media only screen and (min-width: 320px) and (max-width: 768px) {
+   
   }
 `;
 

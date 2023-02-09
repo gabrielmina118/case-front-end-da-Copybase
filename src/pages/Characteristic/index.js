@@ -53,7 +53,6 @@ const Characteristic = () => {
       });
   }, []);
 
-  console.log(pokemonCaracter);
   return (
     <div>
       <Header>

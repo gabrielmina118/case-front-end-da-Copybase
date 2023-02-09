@@ -27,9 +27,9 @@ const Home = () => {
   const navigate = useNavigate();
   const { values, funcoes } = useContext(GlobalContext);
   const [nome, setNome] = useState("");
- 
+
   const cardPokemons = values.pokemons
-    .filter((pokemon) => (nome ? pokemon.name.includes(nome) : true))
+    .filter((pokemon) => (nome ? pokemon.name.toLowerCase().includes(nome.toLowerCase()) : true))
     .map((pokemon, index) => {
       return (
         <CardPokemon type={pokemon.types[0].type.name} key={pokemon.id}>

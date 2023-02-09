@@ -7,6 +7,8 @@ export const Header = styled.header`
   width: 100%;
   justify-content: space-around;
   align-items: center;
+
+  
 `;
 
 export const TextHeaderContainer = styled.div`
@@ -68,7 +70,7 @@ export const Busca = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    label{
+    label {
       color: #fff;
     }
     input {
@@ -79,9 +81,20 @@ export const Busca = styled.div`
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-
+  }
+  @media only screen and (min-width: 320px) and (max-width: 768px) {
+    width: 350px;
+    h1{
+      margin-left: 10px;
+    }
+    div {
+      input {
+        width: 100%;
+      }
+    }
   }
 `;
+
 export const MainContainer = styled.main`
   display: flex;
   flex-wrap: wrap;
