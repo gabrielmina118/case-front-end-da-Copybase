@@ -72,12 +72,7 @@ const Home = () => {
   return (
     <div>
       <Header>
-        <ImgHeader src={pokeLogo} />
-        <ButtonHeaderContainer>
-          <ButtonHeader onClick={() => goTo(navigate, "/pokedex")}>
-            Pokédex
-          </ButtonHeader>
-        </ButtonHeaderContainer>
+        <ImgHeader src={pokeLogo} onClick={() => goTo(navigate, "/")} />
       </Header>
       <Container>
         <Busca>

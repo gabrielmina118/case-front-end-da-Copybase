@@ -23,6 +23,7 @@ export const ImgHeader = styled.img`
   margin-bottom: 26px;
   width: 307px;
   height: 113px;
+  cursor: pointer;
 `;
 
 export const ButtonHeaderContainer = styled.div`
