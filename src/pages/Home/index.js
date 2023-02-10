@@ -1,12 +1,12 @@
 import {
   Busca,
-  ButtonCapturar,
+  ButtonPokemon,
   ButtonDetalhes,
-  ButtonHeader,
-  ButtonHeaderContainer,
+  PaginacaoPokemon,
   CardPokemon,
   Container,
   Header,
+  ButtonPokemonPaginado,
   ImageAndCapture,
   ImgHeader,
   MainContainer,
@@ -25,7 +25,7 @@ import Loading from "../../components/Loading/loading";
 
 const Home = () => {
   const navigate = useNavigate();
-  const { values, funcoes } = useContext(GlobalContext);
+  const { values } = useContext(GlobalContext);
   const [nome, setNome] = useState("");
 
   const cardPokemons = values.pokemons
@@ -63,7 +63,7 @@ const Home = () => {
                 alt={pokemon.name}
               />
             </PokemonImg>
-            <ButtonCapturar id="capturar" onClick={() => goTo(navigate, `/detail/${pokemon.id}`)}>Detalhes!</ButtonCapturar>
+            <ButtonPokemon id="capturar" onClick={() => goTo(navigate, `/detail/${pokemon.name}`)}>Detalhes!</ButtonPokemon>
           </ImageAndCapture>
         </CardPokemon>
       );
@@ -91,6 +91,9 @@ const Home = () => {
           {cardPokemons}
         </MainContainer>
       </Container>
+      <PaginacaoPokemon>
+        <ButtonPokemonPaginado onClick={()=>values.setPagina(values.pagina +  20)}> Busca Mais pokemons</ButtonPokemonPaginado>
+      </PaginacaoPokemon>
     </div>
   );
 };

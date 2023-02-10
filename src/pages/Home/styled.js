@@ -59,17 +59,18 @@ export const Container = styled.div`
 
 export const Busca = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
   h1 {
     color: #fff;
-    margin-left: 40px;
     padding: 16px;
   }
   div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 90%;
+    margin: 5px;
     label {
       color: #fff;
     }
@@ -158,7 +159,7 @@ export const ButtonDetalhes = styled.p`
   }
 `;
 
-export const ButtonCapturar = styled.button`
+export const ButtonPokemon = styled.button`
   width: 140px;
   height: 38px;
   border-radius: 8px;
@@ -177,3 +178,25 @@ export const ImageAndCapture = styled.div`
   justify-content: space-evenly;
   height: 100%;
 `;
+
+export const PaginacaoPokemon = styled.div`
+  display: flex ;
+  align-items: center;
+  justify-content: center;
+ 
+`
+
+export const ButtonPokemonPaginado = styled.button`
+  width: 440px;
+  height: 38px;
+  border-radius: 8px;
+  font-weight: bold;
+  position: relative;
+  margin: 10px;
+  cursor: pointer;
+  :active {
+    background-color: #ff6961 ;
+    transition: 0.3s;
+  }
+
+`

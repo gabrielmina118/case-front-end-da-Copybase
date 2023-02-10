@@ -7,18 +7,19 @@ export default function GlobalState(props) {
   const Provider = GlobalContext.Provider;
 
   const [pokemons, setPokemons] = useState([]);
+  const [pokemonsByName, setPokemonsByName] = useState([]);
   const [pokedex, setPokedex] = useState([]);
   const [removeLoading, setRemoveLoading] = useState(false);
-  const [pagina, setPagina] = useState(0);
+  const [pagina, setPagina] = useState(20);
 
   useEffect(() => {
-    getPokemons();
-  }, []);
+    getPokemonsById();
+  }, [pagina]);
 
-  const getPokemons = async () => {
+  const getPokemonsById = async () => {
     try {
       // Criar um array de 1 até 20
-      const arrayNumber = Array.from({ length: 20 }, (_, index) => ++index)
+      const arrayNumber = Array.from({ length: pagina }, (_, index) => ++index);
       // Buscar os pokemons ja com as informações de cada um na url => https://pokeapi.co/api/v2/pokemon/numberpok
       const pokemonsAll = arrayNumber.map(async (numberpok) => {
         const res = await axios.get(`${BASE_URL}/${numberpok}/`);
@@ -32,29 +33,29 @@ export default function GlobalState(props) {
     }
   };
 
-  const botao1 = () => {
-    setPagina(0);
+  const getPokemonsByName = async (names) => {
+    try {
+     const pokemonsAll = names.map(async (name) => {
+        const res = await axios.get(`${BASE_URL}/${name}/`);
+        return res.data;
+      });
+      const resolvedPokemons = await Promise.all(pokemonsAll);
+      setPokemonsByName(resolvedPokemons);
+    } catch (erro) {
+      console.log("Erro", erro);
+    }
   };
 
-  const botao2 = () => {
-    setPagina(30);
-  };
-
-  const botao3 = () => {
-    setPagina(60);
-  };
-
-  const botao4 = () => {
-    setPagina(90);
-  };
-
-  const funcoes = { botao1, botao2, botao3, botao4 };
   const values = {
     pokemons,
     setPokedex,
     pokedex,
     removeLoading,
+    setPagina,
+    pagina,
+    getPokemonsByName,
+    pokemonsByName
   };
 
-  return <Provider value={{ values, funcoes }}>{props.children}</Provider>;
+  return <Provider value={{ values }}>{props.children}</Provider>;
 }

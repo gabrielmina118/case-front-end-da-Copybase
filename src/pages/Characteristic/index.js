@@ -35,7 +35,6 @@ const Characteristic = () => {
     axios
       .get(`${BASE_URL}/${pathParams.id}/`)
       .then((res) => {
-        console.log("RES DATA", res.data);
         setPokemonCaracter({
           type: res.data?.types[0]?.type.name,
           spritesFront: res.data?.sprites.front_default,
