@@ -61,9 +61,7 @@ export const StatsImg = styled.div`
       width: 200px;
     }
   }
-  @media only screen and (min-width: 320px) and (max-width: 768px) {
-   
-  }
+
 `;
 
 export const StatsDetails = styled.div`

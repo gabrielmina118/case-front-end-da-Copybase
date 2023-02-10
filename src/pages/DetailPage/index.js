@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import axios from "axios";
 import {
   ButtonDetalhes,
@@ -22,15 +22,12 @@ import { BASE_URL } from "../../constants/urls";
 
 const DetailPage = () => {
   const navigate = useNavigate();
-  const [pokemons, setPokemons] = useState([]);
-
+ 
   const params = useParams();
-
-  //   console.log(params.name)
 
   useEffect(() => {
     axios
-      .get(`https://pokeapi.co/api/v2/pokemon-species/${params.name}`)
+      .get(`${BASE_URL}-species/${params.name}`)
       .then((res) => {
         const url = res.data.evolution_chain.url;
         axios
@@ -43,11 +40,11 @@ const DetailPage = () => {
             ]);
           })
           .catch((err) => {
-            console.log(err);
+            alert(err);
           });
       })
       .catch((err) => {
-        console.log(err);
+        alert(err);
       });
   }, [params.name]);
 
@@ -55,7 +52,6 @@ const DetailPage = () => {
   const { values } = useContext(GlobalContext);
 
   const cardPokemons = values.pokemonsByName.map((pokemon, index) => {
-      console.log("pokemons",pokemon.sprites.front_default)
     return (
       <CardPokemon type={pokemon.types[0].type.name} key={pokemon.id}>
         <NameType>
@@ -92,14 +88,14 @@ const DetailPage = () => {
   });
 
   return (
-    <div>
+    <>
       <Header>
         <ImgHeader src={pokeLogo} onClick={() => goTo(navigate, "/")} />
       </Header>
       <Container>
         <MainContainer>{cardPokemons}</MainContainer>
       </Container>
-    </div>
+    </>
   );
 };
 

@@ -29,7 +29,7 @@ export default function GlobalState(props) {
       setPokemons(resolvedPokemons);
       setRemoveLoading(true);
     } catch (erro) {
-      console.log("Erro", erro);
+      alert("Erro", erro);
     }
   };
 
@@ -42,7 +42,7 @@ export default function GlobalState(props) {
       const resolvedPokemons = await Promise.all(pokemonsAll);
       setPokemonsByName(resolvedPokemons);
     } catch (erro) {
-      console.log("Erro", erro);
+      alert("Erro", erro);
     }
   };
 
